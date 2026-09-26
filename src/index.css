@@ -1,0 +1,234 @@
+@import "tailwindcss";
+
+@font-face {
+  font-family: 'MinecraftFont';
+  src: local('Courier New'), local('monospace');
+}
+
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+  image-rendering: pixelated;
+  -webkit-font-smoothing: none;
+}
+
+html, body, #root {
+  width: 100%;
+  height: 100%;
+  overflow: hidden;
+  background: #000;
+  font-family: 'Courier New', monospace;
+  color: #fff;
+  user-select: none;
+}
+
+.mc-btn {
+  background: #737373;
+  border: 2px solid #000;
+  border-top-color: #a0a0a0;
+  border-left-color: #a0a0a0;
+  color: #fff;
+  padding: 8px 16px;
+  font-family: 'Courier New', monospace;
+  font-size: 14px;
+  cursor: pointer;
+  text-shadow: 2px 2px #3f3f3f;
+  min-width: 200px;
+  text-align: center;
+}
+.mc-btn:hover {
+  background: #8b8b8b;
+  border-color: #5a5a5a;
+  border-top-color: #c0c0c0;
+  border-left-color: #c0c0c0;
+}
+.mc-btn:active {
+  background: #5a5a5a;
+}
+.mc-btn.active {
+  background: #557755;
+}
+
+.mc-panel {
+  background: #c6c6c6;
+  border: 3px solid #555;
+  border-top-color: #fff;
+  border-left-color: #fff;
+  padding: 8px;
+}
+
+.mc-slot {
+  width: 36px;
+  height: 36px;
+  background: #8b8b8b;
+  border: 2px solid #373737;
+  border-top-color: #222;
+  border-left-color: #222;
+  border-right-color: #fff;
+  border-bottom-color: #fff;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  position: relative;
+  cursor: pointer;
+}
+.mc-slot:hover {
+  background: #aaa;
+}
+.mc-slot.selected {
+  border-color: #fff;
+  background: #aaa;
+}
+
+.mc-text-input {
+  background: #000;
+  border: 2px solid #555;
+  color: #fff;
+  padding: 6px 10px;
+  font-family: 'Courier New', monospace;
+  font-size: 14px;
+  outline: none;
+}
+.mc-text-input:focus {
+  border-color: #aaa;
+}
+
+.mc-slider {
+  -webkit-appearance: none;
+  width: 100%;
+  height: 8px;
+  background: #555;
+  outline: none;
+  border: 1px solid #333;
+}
+.mc-slider::-webkit-slider-thumb {
+  -webkit-appearance: none;
+  width: 12px;
+  height: 20px;
+  background: #aaa;
+  border: 2px solid #555;
+  cursor: pointer;
+}
+
+canvas {
+  display: block;
+  width: 100%;
+  height: 100%;
+}
+
+.hotbar {
+  position: fixed;
+  bottom: 10px;
+  left: 50%;
+  transform: translateX(-50%);
+  display: flex;
+  gap: 2px;
+  z-index: 100;
+  background: rgba(0,0,0,0.5);
+  padding: 4px;
+  border-radius: 2px;
+}
+
+.crosshair {
+  position: fixed;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  width: 20px;
+  height: 20px;
+  z-index: 100;
+  pointer-events: none;
+}
+.crosshair::before, .crosshair::after {
+  content: '';
+  position: absolute;
+  background: #fff;
+  mix-blend-mode: difference;
+}
+.crosshair::before {
+  width: 2px;
+  height: 20px;
+  left: 9px;
+  top: 0;
+}
+.crosshair::after {
+  width: 20px;
+  height: 2px;
+  top: 9px;
+  left: 0;
+}
+
+.hearts {
+  position: fixed;
+  bottom: 52px;
+  left: calc(50% - 91px);
+  display: flex;
+  gap: 1px;
+  z-index: 100;
+}
+
+.hunger {
+  position: fixed;
+  bottom: 52px;
+  right: calc(50% - 91px);
+  display: flex;
+  gap: 1px;
+  z-index: 100;
+}
+
+.debug-overlay {
+  position: fixed;
+  top: 10px;
+  left: 10px;
+  background: rgba(0,0,0,0.6);
+  color: #fff;
+  padding: 8px;
+  font-size: 11px;
+  font-family: monospace;
+  z-index: 200;
+  line-height: 1.5;
+}
+
+.chat-box {
+  position: fixed;
+  bottom: 70px;
+  left: 10px;
+  width: 350px;
+  z-index: 150;
+}
+.chat-messages {
+  max-height: 200px;
+  overflow-y: auto;
+  margin-bottom: 4px;
+}
+.chat-msg {
+  color: #fff;
+  font-size: 12px;
+  text-shadow: 1px 1px #000;
+  padding: 1px 4px;
+  background: rgba(0,0,0,0.3);
+}
+
+.inventory-screen {
+  position: fixed;
+  top: 0; left: 0; right: 0; bottom: 0;
+  background: rgba(0,0,0,0.7);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  z-index: 300;
+}
+
+.tab-btn {
+  padding: 4px 12px;
+  background: #555;
+  border: 1px solid #333;
+  color: #fff;
+  cursor: pointer;
+  font-size: 12px;
+}
+.tab-btn.active {
+  background: #777;
+  border-color: #aaa;
+}
